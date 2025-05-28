@@ -3,7 +3,6 @@
 
 
 // testavimui
-int testnr = 5; // <--- PAKEISTI NORINT TESTUOTI
 std::chrono::duration<double> diff; // skirtumas sekundemis
 vector<double> testai;
 double tvid(const vector<double>& times) {

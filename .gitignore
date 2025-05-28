@@ -30,3 +30,22 @@
 *.exe
 *.out
 *.app
+
+# Ignore Visual Studio build files and folders
+.vs/
+x64/
+*.vcxproj.user
+*.suo
+*.sdf
+*.db
+*.VC.db
+*.log
+*.ipch
+*.pdb
+*.ilk
+*.idb
+*.tlog
+*.lastbuildstate
+*.opensdf
+*.cache
+

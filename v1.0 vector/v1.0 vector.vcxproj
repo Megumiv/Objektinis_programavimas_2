@@ -129,14 +129,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Studentas.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="Output.h" />
-    <ClInclude Include="penkiOut.h" />
-    <ClInclude Include="skaiciavimas.h" />
+    <ClInclude Include="meniuGen.h" />
     <ClInclude Include="sort.h" />
+    <ClInclude Include="Studentas.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
