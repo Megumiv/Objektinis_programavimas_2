@@ -1,21 +1,15 @@
 # Objektinis-programavimas
 
+- Programa realizuota su klase (pereita iš struct į class)
+- Realizuoti konstruktoriai ir destruktorius
 
 Programa nuskaito vartotojų įvedamus duomenis, juos nuskaito iš failo arba sugeneruoja: studento vardą ir pavardę, namų darbų rezultatus ir egzamino rezultatus.
 
-**Meniu** skirtingos programos eigos pasirinkimui:  <br /> 1 - įrašyti ranka; <br /> 2 - generuoti tik pažymius; <br /> 3 - generuoti studentų vardus, pavardes ir pažymius; <br /> 4 - duomenis nuskaityti iš failo; <br /> 5 - baigti darbą ir išvesti rezultatus su pasirinktinu rūšiavimu; <br/> 6 - sugeneruoti duomenų failus testavimui.
+**Meniu** skirtingos programos eigos pasirinkimui:  <br /> 1 - įrašyti ranka; <br /> 2 - generuoti tik pažymius; <br /> 3 - generuoti studentų vardus, pavardes ir pažymius; <br /> 4 - duomenis nuskaityti iš pasirinkto / įvesto ranka failo; <br /> 5 - baigti darbą ir išvesti rezultatus su pasirinktinu rūšiavimu; <br/> 6 - sugeneruoti duomenų failus testavimui; <br/> 7 - išvalo įvestus duomenis.
 
 <br />
 Baigus duomenų įvedimą, suskaičiuoja galutinį balą pagal formulę:  Galutinis = 0.4 * vidurkis + 0.6 * egzaminas.  Arba vietoj vidurkio pasirenkant medianą.
 
 <br/>Rezultatai išvedami lentelėje, pasirenkant duomenų eigą bei išvestį į ekraną arba failą. Papildomai išvedami failai: kietiakiai.txt (balas >= 5) ir vargsiukai.txt (balas < 5). <br/>
 
-<br/> Realizuota su std::vector, std::list arba std::deque.        Sparčiausiai nuskaitė failus su vector, tada su deque ir lėčiausiai su list:
-
-Nuskaitymo **testavimo** rezultatai (std::vector, std::list, std::deque): <br />
-
-![Screenshot 2025-05-16 032507](https://github.com/user-attachments/assets/23f8fcc8-0da3-4cfe-9e5f-dd563296abc4)  <br/>
-
-![Screenshot 2025-05-16 031054](https://github.com/user-attachments/assets/3de172fb-9134-4b43-9779-54a16044ac44)  <br/>
-
-![Screenshot 2025-05-16 030221](https://github.com/user-attachments/assets/a94f0937-2c6a-4908-a499-d9e2184d2fd8)  <br/>
+<br/>Duomenų nuskaitymo iš failo testavimas su norimu pakartojimų skaičiaus įvedimu (išvedamas vidurkis).
