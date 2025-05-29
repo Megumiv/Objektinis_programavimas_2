@@ -13,8 +13,9 @@ void meniu()
 	cout << "5 - BAIGTI darba ir isvesti rezultatus\n";
 	cout << "6 - Sugeneruoti testavimo failus\n";
 	cout << "7 - Isvalyti ivestus duomenis\n";
+	cout << "8 - 'Rule of five' ir ivesties/ivesties operatoriu veikimo testavimas\n";
 
-	cout << "Pasirinkite (1, 2, 3, 4, 5, 6, 7 ): ";
+	cout << "Pasirinkite (1, 2, 3, 4, 5, 6, 7, 8): ";
 	cin >> choice;
 }
 

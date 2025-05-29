@@ -18,6 +18,7 @@
 
 //#include <istream>
 #include "Studentas.h"
+#include <cassert> // for rule of five test
 
 using std::cout;
 using std::string;
@@ -31,6 +32,8 @@ using std::setw;
 using std::ifstream;
 using std::accumulate; // suma / .size -> vidurkis
 using std::ofstream;
+using std::cerr; // klaidoms
+using std::move;
 
 
 //std::uniform_int_distribution<> dis(0, 10);  // sugeneruoja random skaicius nuo 0 iki 10 - pazymiams

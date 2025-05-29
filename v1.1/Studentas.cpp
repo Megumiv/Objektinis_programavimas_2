@@ -193,3 +193,100 @@ void Student::Isvedimas(const vector<Student>& grupe) {
         cout << "\nRezultatai issaugoti faile: " << file << endl;
     }
 }
+
+
+// RULE OF FIVE
+
+// --- Destruktorius ---
+Student::~Student() {
+    if (vardas.empty() && pavarde.empty())
+        cout << "\n[DESTRUKTORIUS] Naikinamas studentas (moved-from)\n";
+    else
+        cout << "\n[DESTRUKTORIUS] Naikinamas studentas: " << vardas << " " << pavarde << "\n";
+}
+
+// --- Kopijavimo konstruktorius ---
+Student::Student(const Student& other)
+    : vardas(other.vardas),
+    pavarde(other.pavarde),
+    pazymiai(other.pazymiai),
+    egzaminas(other.egzaminas),
+    galutinisVid(other.galutinisVid),
+    galutinisMed(other.galutinisMed) {}
+
+// --- Kopijavimo priskyrimo operatorius ---
+Student& Student::operator=(const Student& other) {
+    if (this != &other) {
+        vardas = other.vardas;
+        pavarde = other.pavarde;
+        pazymiai = other.pazymiai;
+        egzaminas = other.egzaminas;
+        galutinisVid = other.galutinisVid;
+        galutinisMed = other.galutinisMed;
+    }
+    return *this;
+}
+
+// --- Perkelimo konstruktorius ---
+Student::Student(Student&& other) noexcept
+    : vardas(move(other.vardas)),
+    pavarde(move(other.pavarde)),
+    pazymiai(move(other.pazymiai)),
+    egzaminas(other.egzaminas),
+    galutinisVid(other.galutinisVid),
+    galutinisMed(other.galutinisMed) {
+    // Nereikia "nulinimo", nes string ir vector saugiai perkelti
+}
+
+// --- Perkelimo priskyrimo operatorius ---
+Student& Student::operator=(Student&& other) noexcept {
+    if (this != &other) {
+        vardas = move(other.vardas);
+        pavarde = move(other.pavarde);
+        pazymiai = move(other.pazymiai);
+        egzaminas = other.egzaminas;
+        galutinisVid = other.galutinisVid;
+        galutinisMed = other.galutinisMed;
+    }
+    return *this;
+}
+
+
+// Isvesties operatorius
+std::ostream& operator<<(std::ostream& out, const Student& s) {
+    out << s.vardas << " " << s.pavarde << " Egzaminas: " << s.egzaminas << " Pazymiai: ";
+    for (auto& p : s.pazymiai) {
+        out << p << " ";
+    }
+    out << " \nGalutinisVid: " << s.galutinisVid << " GalutinisMed: " << s.galutinisMed;
+    return out;
+}
+
+// Ivesties operatorius
+std::istream& operator>>(std::istream& in, Student& s) {
+    cout << "\nIveskite varda: ";
+    in >> s.vardas;
+    cout << "\nIveskite pavarde: ";
+    in >> s.pavarde;
+
+    int kiek;
+    cout << "\nKiek namu darbu pazymiu? ";
+    in >> kiek;
+
+    s.pazymiai.clear();
+    cout << "\nIveskite " << kiek << " pazymius: ";
+    for (int i = 0; i < kiek; i++) {
+        int p;
+        in >> p;
+        s.pazymiai.push_back(p);
+    }
+
+    cout << "\nIveskite egzamino bala: ";
+    in >> s.egzaminas;
+
+    // Galutinius galima perskaiciuoti, jei reikia, arba palikti tuscius
+    s.galutinisVid = 0.0;
+    s.galutinisMed = 0.0;
+
+    return in;
+}

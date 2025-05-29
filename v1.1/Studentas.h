@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <utility> // std::move
 
 using std::string;
 using std::vector;
@@ -19,9 +20,18 @@ public:
     Student() : egzaminas(0), galutinisVid(0.0), galutinisMed(0.0) { }; // default
     Student(const string& v, const string& p, const vector<int>& paz, int egz); // pilnas
 
-    // destruktorius 
-    ~Student() { };
+
+    // Rule of five
+    ~Student();                                    // destruktorius 
     //~Student() = default;
+    Student(const Student& other);                  // kopijavimo konstruktorius
+    Student& operator=(const Student& other);       // kopijavimo priskyrimo operatorius
+    Student(Student&& other) noexcept;              // perkelimo konstruktorius
+    Student& operator=(Student&& other) noexcept;   // perkelimo priskyrimo operatorius
+    
+    // Ivesties / Isvesties operatoriai
+    friend std::ostream& operator<<(std::ostream& out, const Student& s);   // isvesties
+    friend std::istream& operator>>(std::istream& in, Student& s);          // ivesties
      
     // Ivedimas ranka
     void ivestiRanka();
@@ -43,6 +53,8 @@ public:
     inline string getPavarde() const { return pavarde; }
     double getGalutinisVid() const { return galutinisVid; }
     double getGalutinisMed() const { return galutinisMed; }
+    int getEgzaminas() const { return egzaminas; }
+    const vector<int>& getPazymiai() const { return pazymiai; }
 
     // Skaiciavimai
     void skaiciuokGalutinis(bool naudotiVidurki);

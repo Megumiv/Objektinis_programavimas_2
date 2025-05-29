@@ -6,7 +6,6 @@
 
 
 int main() {
-
     while (true) {
         meniu();
 
@@ -144,6 +143,11 @@ int main() {
         else if (choice == "7") { // Isvalyti ivestus duomenis
             grupe.clear();
             cout << "\nStudentu sarasas isvalytas.\n";
+        }
+
+        else if (choice == "8") { // Testuoja "Rule of Five" ir ivesties/isvesties operatorius
+            testRuleOfFive(); 
+            testOperatoriai(); 
         }
 
         else { // meniu neteisingo ivedimo isvestis
