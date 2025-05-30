@@ -1,3 +1,8 @@
 
 Pavarde       Vardas         Galutinis (Vid.)    Galutinis (Med.)    
 ------------------------------------------------------------------
+Astrauskaite   Asta           9.87                x.xx                
+Burokas        Augustas       10.00               x.xx                
+Jonaitis       Jonas          6.80                x.xx                
+Petraitis      Petras         8.80                x.xx                
+Zemaite        Ema            7.73                x.xx                

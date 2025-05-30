@@ -2,8 +2,10 @@
 #include "Header.h"
 
 // pilnas konstruktorius
+//Student::Student(const string& v, const string& p, const vector<int>& paz, int egz)
+//    : vardas(v), pavarde(p), pazymiai(paz), egzaminas(egz), galutinisVid(0.0), galutinisMed(0.0) {}
 Student::Student(const string& v, const string& p, const vector<int>& paz, int egz)
-    : vardas(v), pavarde(p), pazymiai(paz), egzaminas(egz), galutinisVid(0.0), galutinisMed(0.0) {}
+    : Zmogus(v, p), pazymiai(paz), egzaminas(egz), galutinisVid(0.0), galutinisMed(0.0) {} 
 
 
 // Duomenu ivedimai ranka
@@ -105,11 +107,11 @@ bool Student::nuskaitytiIsFailo(const string& filename, vector<Student>& grupe, 
 
 
 //  Galutinis balas
-void Student::skaiciuokGalutinis(bool naudotiVidurki) {
+double Student::skaiciuokGalutinis(bool naudotiVidurki) {
     if (pazymiai.empty()) {
         galutinisVid = 0.0;
         galutinisMed = 0.0;
-        return;
+        return 0.0;
     }
 
     if (naudotiVidurki) {
@@ -196,29 +198,33 @@ void Student::Isvedimas(const vector<Student>& grupe) {
 
 
 // RULE OF FIVE
-
+bool isTestavimoRezimas = false;
 // --- Destruktorius ---
 Student::~Student() {
-    if (vardas.empty() && pavarde.empty())
-        cout << "\n[DESTRUKTORIUS] Naikinamas studentas (moved-from)\n";
-    else
-        cout << "\n[DESTRUKTORIUS] Naikinamas studentas: " << vardas << " " << pavarde << "\n";
+    if (isTestavimoRezimas) {
+        //if (vardas.empty() && pavarde.empty()) 
+        if (getVardas().empty() && getPavarde().empty())
+            cout << "\n[DESTRUKTORIUS] Naikinamas studentas (moved-from)\n";
+        else
+            cout << "\n[DESTRUKTORIUS] Naikinamas studentas: " << getVardas() << " " << getPavarde() << "\n";
+    }
 }
 
 // --- Kopijavimo konstruktorius ---
 Student::Student(const Student& other)
-    : vardas(other.vardas),
-    pavarde(other.pavarde),
-    pazymiai(other.pazymiai),
+    : Zmogus(other), 
+    pazymiai(other.pazymiai), 
     egzaminas(other.egzaminas),
-    galutinisVid(other.galutinisVid),
+    galutinisVid(other.galutinisVid), 
     galutinisMed(other.galutinisMed) {}
+
 
 // --- Kopijavimo priskyrimo operatorius ---
 Student& Student::operator=(const Student& other) {
     if (this != &other) {
-        vardas = other.vardas;
-        pavarde = other.pavarde;
+        Zmogus::operator=(other);
+        //vardas = other.vardas;
+        //pavarde = other.pavarde;
         pazymiai = other.pazymiai;
         egzaminas = other.egzaminas;
         galutinisVid = other.galutinisVid;
@@ -229,8 +235,9 @@ Student& Student::operator=(const Student& other) {
 
 // --- Perkelimo konstruktorius ---
 Student::Student(Student&& other) noexcept
-    : vardas(move(other.vardas)),
-    pavarde(move(other.pavarde)),
+    : Zmogus(std::move(other)),
+    //: vardas(move(other.vardas)),
+    //pavarde(move(other.pavarde)),
     pazymiai(move(other.pazymiai)),
     egzaminas(other.egzaminas),
     galutinisVid(other.galutinisVid),
@@ -241,8 +248,9 @@ Student::Student(Student&& other) noexcept
 // --- Perkelimo priskyrimo operatorius ---
 Student& Student::operator=(Student&& other) noexcept {
     if (this != &other) {
-        vardas = move(other.vardas);
-        pavarde = move(other.pavarde);
+        Zmogus::operator=(move(other));
+        //vardas = move(other.vardas);
+        //pavarde = move(other.pavarde);
         pazymiai = move(other.pazymiai);
         egzaminas = other.egzaminas;
         galutinisVid = other.galutinisVid;
@@ -253,8 +261,10 @@ Student& Student::operator=(Student&& other) noexcept {
 
 
 // Isvesties operatorius
+//std::ostream& operator<<(std::ostream& out, const Student& s) {
+//    out << s.vardas << " " << s.pavarde << " Egzaminas: " << s.egzaminas << " Pazymiai: ";
 std::ostream& operator<<(std::ostream& out, const Student& s) {
-    out << s.vardas << " " << s.pavarde << " Egzaminas: " << s.egzaminas << " Pazymiai: ";
+    out << s.getVardas() << " " << s.getPavarde() << " Egzaminas: " << s.egzaminas << " Pazymiai: ";
     for (auto& p : s.pazymiai) {
         out << p << " ";
     }
@@ -264,10 +274,18 @@ std::ostream& operator<<(std::ostream& out, const Student& s) {
 
 // Ivesties operatorius
 std::istream& operator>>(std::istream& in, Student& s) {
+  //  cout << "\nIveskite varda: ";
+  //  in >> s.vardas;
+  //  cout << "\nIveskite pavarde: ";
+  //  in >> s.pavarde;
+    string vardas, pavarde;
     cout << "\nIveskite varda: ";
-    in >> s.vardas;
+    in >> vardas;
     cout << "\nIveskite pavarde: ";
-    in >> s.pavarde;
+    in >> pavarde;
+
+    s.setVardas(vardas);
+    s.setPavarde(pavarde);
 
     int kiek;
     cout << "\nKiek namu darbu pazymiu? ";

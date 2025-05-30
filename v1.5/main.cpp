@@ -146,8 +146,10 @@ int main() {
         }
 
         else if (choice == "8") { // Testuoja "Rule of Five" ir ivesties/isvesties operatorius
+            isTestavimoRezimas = true;
             testRuleOfFive(); 
             testOperatoriai(); 
+            isTestavimoRezimas = false;
         }
 
         else { // meniu neteisingo ivedimo isvestis

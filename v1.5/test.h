@@ -32,6 +32,8 @@ void testRuleOfFive() {
     Student s1("Vardas", "Pavarde", { 10, 9, 8 }, 9);
     s1.skaiciuokGalutinis(true);
 
+    //Zmogus z; // Kompiliacijos klaida – negalima sukurti abstrakcios klases objekto
+
     // Kopijavimo konstruktorius
     Student s2(s1);
     if (s2.getVardas() != s1.getVardas())
