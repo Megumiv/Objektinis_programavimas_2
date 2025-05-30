@@ -2,6 +2,7 @@
 
 - Realizuotas "Rule of Five"
 - Ivesties ir isvesties operatoriai
+- Sukurtos dvi klasės: Student (išvestinė) ir Zmogus (abstrakti)
 
 Programa nuskaito vartotojų įvedamus duomenis, juos nuskaito iš failo arba sugeneruoja: studento vardą ir pavardę, namų darbų rezultatus ir egzamino rezultatus. 
 <br/>Realizuota su klase, konstruktoriais ir destruktoriumi.
