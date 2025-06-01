@@ -49,3 +49,6 @@ x64/
 *.opensdf
 *.cache
 
+# CMake build folders
+/CMakeFiles/
+/CMakeCache.txt
