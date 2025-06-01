@@ -1,0 +1,124 @@
+\doxysection{sort.\+h}
+\hypertarget{sort_8h_source}{}\label{sort_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Header.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Studentas.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Rikiavimo\ pasirinkimas}}
+\DoxyCodeLine{00006\ \textcolor{keywordtype}{void}\ SortMeniu(\textcolor{keywordtype}{char}\&\ sortChoice)\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPasirinkite\ pagal\ ka\ norite\ surusiuoti:\ \(\backslash\)n\ \ a)\ Pavarde\ \(\backslash\)n\ \ b)\ Varda\ \(\backslash\)n\ \ c)\ Galutinis\ pagal\ vidurki\ \(\backslash\)n\ \ d)\ Galutinis\ pagal\ mediana.\ \(\backslash\)nIveskite\ tik\ pasirinkimo\ raide:\ "{}};}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ cin\ >>\ sortChoice;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ tikrinama\ ar\ ivestis\ atitinka\ galimus\ paasirinkimus}}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sortChoice\ ==\ \textcolor{charliteral}{'a'}\ ||\ sortChoice\ ==\ \textcolor{charliteral}{'b'}\ ||\ sortChoice\ ==\ \textcolor{charliteral}{'c'}\ ||\ sortChoice\ ==\ \textcolor{charliteral}{'d'})\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nNeteisingas\ pasirinkimas.\ Bandykite\ dar\ karta.\(\backslash\)n"{}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});\ \textcolor{comment}{//\ ignoruoja\ neteisinga\ ivesti}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ Isrenkami\ tik\ skaitmenys}}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{int}\ extractNumber(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ pavarde)\ \{\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{string}\ digits;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ c\ :\ pavarde)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isdigit(c))\ digits\ +=\ c;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{return}\ digits.empty()\ ?\ 0\ :\ std::stoi(digits);}
+\DoxyCodeLine{00031\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ Rikiavimas}}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ Sort(\textcolor{keywordtype}{char}\ sortChoice,\ vector<Student>\&\ grupe)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (sortChoice\ ==\ \textcolor{charliteral}{'a'})\ \{\ \textcolor{comment}{//pavarde}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ sort(grupe.begin(),\ grupe.end(),\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ b)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ int\ numA\ =\ extractNumber(a.getPavarde());}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ int\ numB\ =\ extractNumber(b.getPavarde());}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ if\ (numA\ ==\ numB)\ \ return\ a.getPavarde()\ <\ b.getPavarde();\ \textcolor{comment}{//\ turi\ sutapti\ skaitmenu\ kiekis}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ return\ numA\ <\ numB;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (sortChoice\ ==\ \textcolor{charliteral}{'b'})\ \{\ \textcolor{comment}{//vardas}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ sort(grupe.begin(),\ grupe.end(),\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ b)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ int\ numA\ =\ extractNumber(a.getVardas());}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ int\ numB\ =\ extractNumber(b.getVardas());}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ if\ (numA\ ==\ numB)\ \ return\ a.getVardas()\ <\ b.getVardas();\ \textcolor{comment}{//\ turi\ sutapti\ skaitmenu\ kiekis}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ return\ numA\ <\ numB;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (sortChoice\ ==\ \textcolor{charliteral}{'c'})\ \{\ \textcolor{comment}{//\ vidurkio\ galutinis}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ sort(grupe.begin(),\ grupe.end(),\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ b)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ return\ a.getGalutinisVid()\ <\ b.getGalutinisVid();}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (sortChoice\ ==\ \textcolor{charliteral}{'d'})\ \{\ \textcolor{comment}{//\ medianos\ galutinis}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ sort(grupe.begin(),\ grupe.end(),\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_student}{Student}}\&\ b)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ return\ a.getGalutinisMed()\ <\ b.getGalutinisMed();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ Isskirstymas\ i\ kietiakius\ ir\ vargsiukus\ pagal\ bala}}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ Skirstymas(\textcolor{keyword}{const}\ vector<Student>\&\ grupe)\ \{}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ vector<Student>\ kietiakiai;}
+\DoxyCodeLine{00068\ \ \ \ \ vector<Student>\ vargsiukai;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ stud\ :\ grupe)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stud.getGalutinisVid()\ >=\ 5.0\ ||\ stud.getGalutinisMed()\ >=\ 5)}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ kietiakiai.push\_back(stud);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ vargsiukai.push\_back(stud);}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ std::ofstream\ outKiet(\textcolor{stringliteral}{"{}kietiakiai.txt"{}});}
+\DoxyCodeLine{00077\ \ \ \ \ std::ofstream\ outVargs(\textcolor{stringliteral}{"{}vargsiukai.txt"{}});}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (!outKiet)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Klaida\ atidarant\ kietiakiai.txt\ faila!\(\backslash\)n"{}};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (!outVargs)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Klaida\ atidarant\ vargsiukai.txt\ faila!\(\backslash\)n"{}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ Kietiakiai}}
+\DoxyCodeLine{00089\ \ \ \ \ outKiet\ <<\ left\ <<\ setw(15)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPavarde"{}}\ <<\ setw(15)\ <<\ \textcolor{stringliteral}{"{}Vardas"{}};}
+\DoxyCodeLine{00090\ \ \ \ \ outKiet\ <<\ setw(20)\ <<\ \textcolor{stringliteral}{"{}Galutinis\ (Vid.)"{}}\ <<\ setw(20)\ <<\ \textcolor{stringliteral}{"{}Galutinis\ (Med.)"{}}\ <<\ endl;}
+\DoxyCodeLine{00091\ \ \ \ \ outKiet\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ s\ :\ kietiakiai)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ outKiet\ <<\ left\ <<\ setw(15)\ <<\ s.getPavarde()\ <<\ setw(15)\ <<\ s.getVardas();}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ galutinis\ pasirinktas\ pagal\ vidurki,\ o\ prie\ medianos\ -\/\ x}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s.getGalutinisVid()\ ==\ -\/1)\ outKiet\ <<\ setw(20)\ <<\ \textcolor{stringliteral}{"{}x.xx"{}};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ outKiet\ <<\ setw(20)\ <<\ fixed\ <<\ setprecision(2)\ <<\ s.getGalutinisVid();}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ galutinis\ pasirinktas\ pagal\ mediana,\ o\ prie\ vidurkio\ -\/\ x}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s.getGalutinisMed()\ ==\ -\/1)\ outKiet\ <<\ setw(20)\ <<\ \textcolor{stringliteral}{"{}x.xx"{}}\ <<\ endl;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ outKiet\ <<\ setw(20)\ <<\ fixed\ <<\ setprecision(2)\ <<\ s.getGalutinisMed()\ <<\ endl;}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ Vargsiukai}}
+\DoxyCodeLine{00104\ \ \ \ \ outVargs\ <<\ left\ <<\ setw(15)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPavarde"{}}\ <<\ setw(15)\ <<\ \textcolor{stringliteral}{"{}Vardas"{}};}
+\DoxyCodeLine{00105\ \ \ \ \ outVargs\ <<\ setw(20)\ <<\ \textcolor{stringliteral}{"{}Galutinis\ (Vid.)"{}}\ <<\ setw(20)\ <<\ \textcolor{stringliteral}{"{}Galutinis\ (Med.)"{}}\ <<\ endl;}
+\DoxyCodeLine{00106\ \ \ \ \ outVargs\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ s\ :\ vargsiukai)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ outVargs\ <<\ left\ <<\ setw(15)\ <<\ s.getPavarde()\ <<\ setw(15)\ <<\ s.getVardas();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ galutinis\ pasirinktas\ pagal\ vidurki,\ o\ prie\ medianos\ -\/\ x}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s.getGalutinisVid()\ ==\ -\/1)\ outVargs\ <<\ setw(20)\ <<\ \textcolor{stringliteral}{"{}x.xx"{}};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ outVargs\ <<\ setw(20)\ <<\ fixed\ <<\ setprecision(2)\ <<\ s.getGalutinisVid();}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ galutinis\ pasirinktas\ pagal\ mediana,\ o\ prie\ vidurkio\ -\/\ x}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s.getGalutinisMed()\ ==\ -\/1)\ outVargs\ <<\ setw(20)\ <<\ \textcolor{stringliteral}{"{}x.xx"{}}\ <<\ endl;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ outVargs\ <<\ setw(20)\ <<\ fixed\ <<\ setprecision(2)\ <<\ s.getGalutinisMed()\ <<\ endl;}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//failas.close();}}
+\DoxyCodeLine{00118\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nPapildomai\ surusiuota\ ir\ isvesta\ i\ failus:\ \(\backslash\)"{}kietiakiai.txt\(\backslash\)"{}\ (balas\ >=\ 5)\ ir\ \(\backslash\)"{}vargsiukai.txt\(\backslash\)"{}\ (balas\ <\ 5).\(\backslash\)n"{}};}
+\DoxyCodeLine{00119\ \}}
+
+\end{DoxyCode}

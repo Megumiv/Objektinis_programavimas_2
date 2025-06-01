@@ -1,0 +1,74 @@
+\doxysection{Header.\+h}
+\hypertarget{_header_8h_source}{}\label{_header_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <numeric>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cstdlib>}\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//nuo\ v0.2}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <chrono>}\ \textcolor{comment}{//\ testavimui}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdexcept>}\ \textcolor{comment}{//}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\#include\ <istream>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}Studentas.h"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <cassert>}\ \textcolor{comment}{//\ for\ rule\ of\ five\ test}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{using\ }std::cout;}
+\DoxyCodeLine{00024\ \textcolor{keyword}{using\ }std::string;}
+\DoxyCodeLine{00025\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{00026\ \textcolor{keyword}{using\ }std::endl;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{using\ }std::cin;}
+\DoxyCodeLine{00028\ \textcolor{keyword}{using\ }std::fixed;}
+\DoxyCodeLine{00029\ \textcolor{keyword}{using\ }std::setprecision;}
+\DoxyCodeLine{00030\ \textcolor{keyword}{using\ }std::left;}
+\DoxyCodeLine{00031\ \textcolor{keyword}{using\ }std::setw;}
+\DoxyCodeLine{00032\ \textcolor{keyword}{using\ }std::ifstream;}
+\DoxyCodeLine{00033\ \textcolor{keyword}{using\ }std::accumulate;\ \textcolor{comment}{//\ suma\ /\ .size\ -\/>\ vidurkis}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{using\ }std::ofstream;}
+\DoxyCodeLine{00035\ \textcolor{keyword}{using\ }std::cerr;\ \textcolor{comment}{//\ klaidoms}}
+\DoxyCodeLine{00036\ \textcolor{keyword}{using\ }std::move;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//std::uniform\_int\_distribution<>\ dis(0,\ 10);\ \ //\ sugeneruoja\ random\ skaicius\ nuo\ 0\ iki\ 10\ -\/\ pazymiams}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//std::uniform\_int\_distribution<>\ diss(1,\ 10);\ //\ -\/\ studentu\ kiekiui}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{using\ }std::uniform\_int\_distribution;}
+\DoxyCodeLine{00043\ \textcolor{keyword}{using\ }std::random\_device;}
+\DoxyCodeLine{00044\ \textcolor{keyword}{using\ }std::mt19937;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{using\ }std::chrono::high\_resolution\_clock;}
+\DoxyCodeLine{00047\ \textcolor{keyword}{using\ }std::chrono::duration\_cast;}
+\DoxyCodeLine{00048\ \textcolor{keyword}{using\ }std::chrono::duration;}
+\DoxyCodeLine{00049\ \textcolor{keyword}{using\ }std::chrono::milliseconds;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ m\ =\ 0;\ \textcolor{comment}{//studentu\ kiekis}}
+\DoxyCodeLine{00053\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ nd\ =\ 0;\ \textcolor{comment}{//namu\ darbu\ rezultatai}}
+\DoxyCodeLine{00054\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ pasirinkimas\ =\ 0;\ \textcolor{comment}{//\ skaiciuoti\ pagal\ vidurki\ ar\ mediana}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ isv\ =\ 0;\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{inline}\ vector<Student>\ grupe;}
+\DoxyCodeLine{00058\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{string}\ choice;}
+\DoxyCodeLine{00059\ \textcolor{keyword}{inline}\ vector<int>\ paz\_temp;}
+\DoxyCodeLine{00060\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{string}\ sortChoice;}
+\DoxyCodeLine{00061\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_student}{Student}}\ laik;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ vardu\ ir\ pavardziu\ sarasas}}
+\DoxyCodeLine{00065\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ vector<string>\ firstNames\ =\ \{\ \textcolor{stringliteral}{"{}Augustas"{}},\ \textcolor{stringliteral}{"{}Birute"{}},\ \textcolor{stringliteral}{"{}Daiva"{}},\ \textcolor{stringliteral}{"{}Ema"{}},\ \textcolor{stringliteral}{"{}Fiodoras"{}},\ \textcolor{stringliteral}{"{}Gabrielius"{}},\ \textcolor{stringliteral}{"{}Haroldas"{}},\ \textcolor{stringliteral}{"{}Ieva"{}},\ \textcolor{stringliteral}{"{}Tomas"{}},\ \textcolor{stringliteral}{"{}Nija"{}}\ \};}
+\DoxyCodeLine{00066\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ vector<string>\ lastNames\ =\ \{\ \textcolor{stringliteral}{"{}Baravykas"{}},\ \textcolor{stringliteral}{"{}Kiskis"{}},\ \textcolor{stringliteral}{"{}Lydeka"{}},\ \textcolor{stringliteral}{"{}Burokas"{}},\ \textcolor{stringliteral}{"{}Neris"{}},\ \textcolor{stringliteral}{"{}Jankauskas"{}},\ \textcolor{stringliteral}{"{}Kazlauskas"{}},\ \textcolor{stringliteral}{"{}Urbonas"{}},\ \textcolor{stringliteral}{"{}Boruta"{}},\ \textcolor{stringliteral}{"{}Zemaite"{}}\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ testnr\ =\ 1;}
+\DoxyCodeLine{00069\ }
+
+\end{DoxyCode}

@@ -1,0 +1,93 @@
+\doxysection{Studentas.\+h}
+\hypertarget{_studentas_8h_source}{}\label{_studentas_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <utility>}\ \textcolor{comment}{//\ std::move}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ }std::string;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }Zmogus\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{string}\ vardas;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{string}\ pavarde;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ Zmogus()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ \ \ \ \ Zmogus(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ v,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ p)\ :\ vardas(v),\ pavarde(p)\ \{\}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ RULE\ OF\ FIVE}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~Zmogus()\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//destruktorius\ \ \ }}
+\DoxyCodeLine{00021\ \ \ \ \ Zmogus(\textcolor{keyword}{const}\ Zmogus\&\ other)\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Kopijavimo\ konstruktorius\ \ \ }}
+\DoxyCodeLine{00022\ \ \ \ \ Zmogus\&\ operator=(\textcolor{keyword}{const}\ Zmogus\&\ other)\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \textcolor{comment}{//\ Kopijavimo\ priskyrimo\ operatorius}}
+\DoxyCodeLine{00023\ \ \ \ \ Zmogus(Zmogus\&\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Perkelimo\ konstruktorius}}
+\DoxyCodeLine{00024\ \ \ \ \ Zmogus\&\ operator=(Zmogus\&\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \textcolor{comment}{//\ Perkelimo\ priskyrimo\ operatorius}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ Abstraktus\ metodas,\ pavyzdziui,\ galutinis\ balas,\ kad\ klase\ butu\ abstrakti}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ skaiciuokGalutinis(\textcolor{keywordtype}{bool}\ naudotiVidurki)\ =\ 0;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ Geteriai\ ir\ seteriai}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ setVardas(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ v)\ \{\ vardas\ =\ v;\ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ setPavarde(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ p)\ \{\ pavarde\ =\ p;\ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{string}\ getVardas()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ vardas;\ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{string}\ getPavarde()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ pavarde;\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Ivedimas\ ranka}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ivestiRanka()\ =\ 0;}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ isTestavimoRezimas;\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }Student\ :\ \textcolor{keyword}{public}\ Zmogus\ \{}
+\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ vector<int>\ pazymiai;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ egzaminas;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{double}\ galutinisVid;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{double}\ galutinisMed;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ Ivesties\ /\ Isvesties\ operatoriai}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ operator<<(std::ostream\&\ out,\ \textcolor{keyword}{const}\ Student\&\ s);\ \ \ \textcolor{comment}{//\ isvesties}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{friend}\ std::istream\&\ operator>>(std::istream\&\ in,\ Student\&\ s);\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ivesties}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ Konstruktoriai}}
+\DoxyCodeLine{00056\ \ \ \ \ Student()\ =\ \textcolor{keywordflow}{default};\ \textcolor{comment}{//\ default}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{explicit}\ Student(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ v,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ p,\ \textcolor{keyword}{const}\ vector<int>\&\ paz,\ \textcolor{keywordtype}{int}\ egz);\ \textcolor{comment}{//\ pilnas}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Rule\ of\ five}}
+\DoxyCodeLine{00060\ \ \ \ \ \string~Student()\ \textcolor{keyword}{override};\textcolor{comment}{//\ =\ default;\ //\ destruktorius\ }}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\string~Student()\ =\ default;}}
+\DoxyCodeLine{00062\ \ \ \ \ Student(\textcolor{keyword}{const}\ Student\&\ other);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ kopijavimo\ konstruktorius}}
+\DoxyCodeLine{00063\ \ \ \ \ Student\&\ operator=(\textcolor{keyword}{const}\ Student\&\ other);\ \ \ \ \ \ \ \textcolor{comment}{//\ kopijavimo\ priskyrimo\ operatorius}}
+\DoxyCodeLine{00064\ \ \ \ \ Student(Student\&\&\ other)\ \textcolor{keyword}{noexcept};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ perkelimo\ konstruktorius}}
+\DoxyCodeLine{00065\ \ \ \ \ Student\&\ operator=(Student\&\&\ other)\ \textcolor{keyword}{noexcept};\ \ \ \textcolor{comment}{//\ perkelimo\ priskyrimo\ operatorius}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ Implementuoti\ abstraktu\ metoda\ is\ Zmogus}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{double}\ skaiciuokGalutinis(\textcolor{keywordtype}{bool}\ naudotiVidurki)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ Ivesties\ metodai}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ ivestiRanka()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ Nuskaitymas\ is\ failo}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ nuskaitytiIsFailo(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ filename,\ vector<Student>\&\ grupe,\ \textcolor{keywordtype}{bool}\ naudotiVidurki);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ Isvedimas}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Isvedimas(\textcolor{keyword}{const}\ vector<Student>\&\ grupe);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ Get'ai}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{double}\ getGalutinisVid()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ galutinisVid;\ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{double}\ getGalutinisMed()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ galutinisMed;\ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ getEgzaminas()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ egzaminas;\ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ vector<int>\&\ getPazymiai()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ pazymiai;\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ Nustatymai}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ setEgzaminas(\textcolor{keywordtype}{int}\ e)\ \{\ egzaminas\ =\ e;\ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ addNd(\textcolor{keywordtype}{int}\ nd)\ \{\ pazymiai.push\_back(nd);\ \}}
+\DoxyCodeLine{00088\ \};}
+
+\end{DoxyCode}
