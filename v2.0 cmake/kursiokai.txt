@@ -1,0 +1,8 @@
+Vardas      Pavarde         ND1 ND2 ND3 ND4 ND5 ND6   EGZAMINAS
+Jonas       Jonaitis        10  8   10  10  9   10    5
+Petras      Petraitis       7   5   8   6   9   7     10
+Asta        Astrauskaite    10  9   10  10  10  9     10
+Ema         Zemaite         7   2   8   9   10  8     8
+Augustas    Burokas         10  10  10  10  10  10    10
+Fiodoras    Lydeka			4	3	7	2	1	6	  5
+Ieva		Neris			1	0	0	6	9	0	  5
