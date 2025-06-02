@@ -3,12 +3,12 @@
 - Sukurtas cmake 
 - Pateikta Doxygen dokumentacija kartu su sugeneruotu PDF per Overleaf
 - Realizuoti Unit Testai ("Rule of Five" ir įvesties, išvesties operatoriai; randama v2.0 test.cpp)
-<br/>
+
 <br/> **Naudojimuisi naudingi** paths ir failai šiame branch'e:
-- Dokumentacija/html/index.html  ---------- (Doxygen dokumentacija)
-- Dokumentacija/documentation pdf.pdf  ---- (PDF dokumentacija)
-- v2.0 cmake/CMake2.0.exe  ---------------- (v2.0 paleidimo cmake failas)
-- v2.0 cmake/test.cpp  -------------------- (naujas failas Unit Testams)
+<br/> - Dokumentacija/html/index.html  ---------- (Doxygen dokumentacija)
+<br/> - Dokumentacija/documentation pdf.pdf  ---- (PDF dokumentacija)
+<br/> - v2.0 cmake/CMake2.0.exe  ---------------- (v2.0 paleidimo cmake failas)
+<br/> - v2.0 cmake/test.cpp  -------------------- (naujas failas Unit Testams)
 
 
 <br/>Programa nuskaito vartotojų įvedamus duomenis, juos nuskaito iš failo arba sugeneruoja: studento vardą ir pavardę, namų darbų rezultatus ir egzamino rezultatus. 
