@@ -3,8 +3,15 @@
 - Sukurtas cmake 
 - Pateikta Doxygen dokumentacija kartu su sugeneruotu PDF per Overleaf
 - Realizuoti Unit Testai ("Rule of Five" ir įvesties, išvesties operatoriai; randama v2.0 test.cpp)
+<br/>
+<br/> **Naudojimuisi naudingi** paths ir failai šiame branch'e:
+- Dokumentacija/html/index.html  ---------- (Doxygen dokumentacija)
+- Dokumentacija/documentation pdf.pdf  ---- (PDF dokumentacija)
+- v2.0 cmake/CMake2.0.exe  ---------------- (v2.0 paleidimo cmake failas)
+- v2.0 cmake/test.cpp  -------------------- (naujas failas Unit Testams)
 
-Programa nuskaito vartotojų įvedamus duomenis, juos nuskaito iš failo arba sugeneruoja: studento vardą ir pavardę, namų darbų rezultatus ir egzamino rezultatus. 
+
+<br/>Programa nuskaito vartotojų įvedamus duomenis, juos nuskaito iš failo arba sugeneruoja: studento vardą ir pavardę, namų darbų rezultatus ir egzamino rezultatus. 
 <br/>Realizuota su klase, konstruktoriais ir destruktoriumi, įvesties ir išvesties operatoriais, "Rule of Five".<br/>
 
 <br/> Sukurtos dvi klasės: Student (išvestinė) ir Zmogus (abstrakti).
@@ -17,10 +24,5 @@ Baigus duomenų įvedimą, suskaičiuoja galutinį balą pagal formulę:  Galuti
 <br/>Rezultatai išvedami lentelėje, pasirenkant duomenų eigą bei išvestį į ekraną arba failą. Papildomai išvedami failai: kietiakiai.txt (balas >= 5) ir vargsiukai.txt (balas < 5). <br/>
 
 <br/>Duomenų nuskaitymo iš failo testavimas su norimu pakartojimų skaičiaus įvedimu (išvedamas vidurkis).
+![Screenshot 2025-06-02 031428](https://github.com/user-attachments/assets/10901d79-c9e9-4a90-a99d-ed97b9d9d45b)
 
-
-<br/> Naudojimuisi naudingi paths bei failai šiame branch'e:
-- Dokumentacija/html/index.html         (Doxygen dokumentacija)
-- Dokumentacija/documentation pdf.pdf   (PDF dokumentacija)
-- v2.0 cmake/CMake2.0.exe               (v2.0 paleidimo cmake failas)
-- v2.0 cmake/test.cpp                   (naujas failas Unit Testams)
